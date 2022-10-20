@@ -11,18 +11,26 @@ import meteordevelopment.meteorclient.systems.hud.HudGroup;
 import meteordevelopment.meteorclient.systems.modules.Category;
 import meteordevelopment.meteorclient.systems.modules.Modules;
 import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Addon extends MeteorAddon {
-    public static final Logger LOG = LogUtils.getLogger();
-    public static final Category CATEGORY = new Category("Shadow");
-    public static final HudGroup HUD_GROUP = new HudGroup("Example");
+    public static final Logger LOG = LoggerFactory.getLogger("Meteor Shadow");
+    public static final Category CATEGORY = new Category("Shadow", Items.NETHERITE_BLOCK.getDefaultStack());
+    public static final HudGroup HUD_GROUP = new HudGroup("Shadow");
 
     @Override
     public void onInitialize() {
         LOG.info("Initializing Meteor Shadow Client Addon");
 
         // Modules
-        Modules.get().add(new ModuleExample());
+        Modules.get().add(new Annihilator());
+        Modules.get().add(new AutoTNT());
+        Modules.get().add(new AutoRun());
+        Modules.get().add(new AutoIgnite());
+        Modules.get().add(new AutoFireball());
+        Modules.get().add(new MapDestroyer());
+        Modules.get().add(new Decimator());
+        Modules.get().add(new Explosion());
 
         // Commands
         Commands.get().add(new CommandExample());
