@@ -31,12 +31,6 @@ public class Addon extends MeteorAddon {
         Modules.get().add(new MapDestroyer());
         Modules.get().add(new Decimator());
         Modules.get().add(new Explosion());
-
-        // Commands
-        Commands.get().add(new CommandExample());
-
-        // HUD
-        Hud.get().register(HudExample.INFO);
     }
 
     @Override
