@@ -74,14 +74,10 @@ public class Annihilator extends Module {
         for (int x = start.getX(); x <= end.getX(); x++) {
             for (int y = start.getY(); y <= end.getY(); y++) {
                 for (int z = start.getZ(); z <= end.getZ(); z++) {
-                    BetterBlockPos blockPos = new BetterBlockPos(x, y, z);
-                    BlockState state = Blocks.AIR.getDefaultState();
-
-                    try {
-                        state = BlockState.fromString(block.get().equals("") ? "minecraft:air" : "minecraft:" + block.get());
-                    } catch (Exception ignored) {}
-
-                    mc.world.setBlockState(blockPos, state, 3);
+                    String cmd = "/fill " + start.getX() + " " + start.getY() + " " + start.getZ() + " " +
+                                 end.getX() + " " + end.getY() + " " + end.getZ() + " " +
+                                 (block.get().isEmpty() ? "minecraft:air" : "minecraft:" + block.get());
+                    mc.player.sendChatMessage(cmd);
                 }
             }
         }
